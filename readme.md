@@ -77,6 +77,26 @@ import deciderColor from './app/themes/variables/deciderColor';
 * `ios/<App>/Images.xcassets/AppIcon.appiconset`
 * `ios/<App>/Images.xcassets/LaunchImage.appiconset`
 
+Android Assests
+
+| Resolution | icon.png    | screen.png         |
+|------------|-------------|--------------------|
+| mdpi       | 48x48       | 320x480            |
+| hpdi       | 72x72       | 480x800            |
+| xhdpi      | 96x96       | 720x1280           |
+| xxhdpi     | 144x144     | 960x1600           |
+| xxxhdpi    | 192x192     | 1280x1920          |
+
+```
+AndroidManifest.xml
+     android:icon="@drawable/icons"
+```
+
+
+* Splash Screen - https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae
+* Splash Screen - https://github.com/crazycodeboy/react-native-splash-screen
+* Image Asset Tool - http://apetools.webprofusion.com/tools/imagegorilla
+
 
 ## References
 * [NativeBase Components](https://docs.nativebase.io/Components.html#Components)
@@ -84,7 +104,6 @@ import deciderColor from './app/themes/variables/deciderColor';
 * Redux - https://medium.com/@mosesesan/tutorial-react-native-redux-boilerplate-4899f5c4f431
 * Redux - https://github.com/react-native-training/basic-redux-react-native-boilerplate
 * Redux-persist - https://www.youtube.com/watch?v=yaVs--Nhuio
-* Splash Screen - https://github.com/crazycodeboy/react-native-splash-screen
-* Splash Screen - https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae
-* Image Asset Tool - http://apetools.webprofusion.com/tools/imagegorilla
+
+
 * Dev Tools - https://github.com/facebook/react-devtools/tree/master/packages/react-devtools

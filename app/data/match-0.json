@@ -1,0 +1,10 @@
+{"hostteam": 4104, "visitingteam": 4111, "winner": 4111, "hostscore": 5, "visitorscore": 10,
+    "games": [
+        {"number": 1, "player1": 4111, "player2": 6794, "winner": 4111, "turns": [
+            {"player1": "MISS"}, {"player2": "MISS"}, {"player1": "DEFENSIVE"}, {"player2": "MISS"}, {"player1": "WIN"}] },
+        {"number": 2, "player1": 4111, "player2": 6794, "winner": 4111, "turns": [] },
+        {"number": 3, "player1": 4111, "player2": 6794, "winner": 4111, "turns": [] },
+        {"number": 4, "player1": 4111, "player2": 6794, "winner": 4111, "turns": [] },
+        {"number": 5, "player1": 4111, "player2": 6794, "winner": 4111, "turns": [] }
+    ]
+}

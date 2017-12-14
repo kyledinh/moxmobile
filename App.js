@@ -1,57 +1,76 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AsyncStorage, View } from 'react-native';
+import { Container, StyleProvider } from 'native-base';
+import { Router, Scene } from 'react-native-router-flux';
+import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import AppHeader from './app/components/AppHeader';
+import AppFooter from './app/components/AppFooter';
+import AppLoading from './app/components/AppLoading';
+
+import getTheme from './app/themes/components';
+import deciderColor from './app/themes/variables/deciderColor';
+
+import AppAbout from './app/scenes/AppAbout';
+import AppHome from './app/scenes/AppHome';
+import AppMatches from './app/scenes/AppMatches';
+import AppPlayer from './app/scenes/AppPlayer';
+import AppPlayerAdd from './app/scenes/AppPlayerAdd';
+import AppPlayers from './app/scenes/AppPlayers';
+import AppNews from './app/scenes/AppNews';
+import AppTeams from './app/scenes/AppTeams';
+import AppTeamAdd from './app/scenes/AppTeamAdd';
+
+import configureStore from './app/redux/store';
+import initialdata from  './app/data/initialdata';
+
+const store = configureStore();
 
 export default class App extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
-  }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+    constructor() {
+        super()
+        this.state = {
+            isStoreLoaded: false,
+            books: initialdata.books
+        };
+    }
+
+    componentDidMount() {
+        persistStore(
+            store,
+            {
+              storage: AsyncStorage,
+              blacklist: ['news']
+            },
+            () => { this.setState({isStoreLoaded: true}); }
+        );
+    }
+
+    render() {
+        if (!this.state.isStoreLoaded) {
+            return <AppLoading/>
+        }
+        return (
+            <Provider store={store}>
+            <StyleProvider style={getTheme(deciderColor)}>
+                <Container>
+                    <Router>
+                        <Scene key="home" component={AppHome} hideNavBar={true}/>
+                        <Scene key="matches" component={AppMatches} hideNavBar={true}/>
+                        <Scene key="teams" component={AppTeams} hideNavBar={true}/>
+                        <Scene key="teamadd" component={AppTeamAdd} hideNavBar={true}/>
+                        <Scene key="players" component={AppPlayers} hideNavBar={true}/>
+                        <Scene key="player" component={AppPlayer} players={this.state.players} hideNavBar={true}/>
+                        <Scene key="playeradd" component={AppPlayerAdd} hideNavBar={true}/>
+                        <Scene key="about" component={AppAbout} hideNavBar={true}/>
+                        <Scene key="news" component={AppNews} hideNavBar={true}/>
+                    </Router>
+                    <AppFooter/>
+                </Container>
+            </StyleProvider>
+            </Provider>
+        );
+    }
+}
