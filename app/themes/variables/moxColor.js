@@ -148,10 +148,10 @@ export default {
   // FooterTab
   tabBarTextColor: "#e2e2e2",
   tabBarTextSize: platform === "ios" ? 14 : 11,
-  activeTab: platform === "ios" ? this.angelDarker : "#fff",
+  activeTab: platform === "ios" ? "#ac956a" : "#fff",
   sTabBarActiveTextColor: "#6a5b40",
   tabBarActiveTextColor: "#fff",
-  tabActiveBgColor: platform === "ios" ? this.angelDarker : undefined,
+  tabActiveBgColor: platform === "ios" ? "#ac956a" : undefined,
 
   // Tab
   tabDefaultBg: "#2874F0",

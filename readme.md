@@ -1,3 +1,6 @@
+# MoxMobile
+> This is a starter template for a cross-platform (IOS/Android) mobile app that uses React-Native, NavtiveBase Flux Router and Redux. It includes functioning navigation, custom components, styling themes, api calls and async data persistence.
+
 ## Dev
 * `react-native init Decider;  mv Decider decider;`
 * `npm install native-base --save`
@@ -9,7 +12,6 @@
 
 ### Rebuild Cache
 * `react-native start --reset-cache`
-
 
 ## Dependencies
 
@@ -31,45 +33,17 @@
 
 ## NativeBase
 Create custom theme
-
-```
-kyle@KMBP:~/src/github.com/kyledinh/decider-mobile$ node node_modules/native-base/ejectTheme.js
-┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ NativeBase theme has been copied at /Users/kyle/src/github.com/kyledinh/decider-mobile/native-base-theme │
-│ Here's how to theme your app                                                                             │
-│                                                                                                          │
-│ import getTheme from './native-base-theme/components';                                                   │
-│ export default class ThemeExample extends Component {                                                    │
-│ render() {                                                                                               │
-│   return (                                                                                               │
-│     <StyleProvider  style={getTheme()}>                                                                  │
-│       <Container>                                                                                        │
-│         <Content>                                                                                        │
-│           ...                                                                                            │
-│         </Content>                                                                                       │
-│       </Container>                                                                                       │
-│     </StyleProvider>                                                                                     │
-│   );                                                                                                     │
-│ }                                                                                                        │
-│                                                                                                          │
-│ Head over to the docs (http://docs.nativebase.io/CUSTOMIZE.html#Customize)                               |
-| for detailed information on customization                                                                │
-└──────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-kyle@KMBP:~/src/github.com/kyledinh/decider-mobile$
-
-```
-
+* Eject theme `node node_modules/native-base/ejectTheme.js`
 * Move `native-base-theme` to `./app/themes`
-* Copy `./app/themes/variables/commonColor.js` to `deciderColor.js`
+* Copy `./app/themes/variables/commonColor.js` to `moxColor.js`
 * To Use:
 ```
 import getTheme from './app/themes/components';
-import deciderColor from './app/themes/variables/deciderColor';
+import moxColor from './app/themes/variables/moxColor';
 
-<StyleProvider style={getTheme(deciderColor)}>
+<StyleProvider style={getTheme(moxColor)}>
 ...
 </StyleProvider>
-
 ```
 
 ## Images
@@ -92,11 +66,13 @@ AndroidManifest.xml
      android:icon="@drawable/icons"
 ```
 
-
 * Splash Screen - https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae
 * Splash Screen - https://github.com/crazycodeboy/react-native-splash-screen
 * Image Asset Tool - http://apetools.webprofusion.com/tools/imagegorilla
 
+## Free APIs
+* Air Quality - https://api.openaq.org/v1/cities?limit=10&country=NL
+* Star Wars API - https://swapi.co/
 
 ## References
 * [NativeBase Components](https://docs.nativebase.io/Components.html#Components)
@@ -104,6 +80,4 @@ AndroidManifest.xml
 * Redux - https://medium.com/@mosesesan/tutorial-react-native-redux-boilerplate-4899f5c4f431
 * Redux - https://github.com/react-native-training/basic-redux-react-native-boilerplate
 * Redux-persist - https://www.youtube.com/watch?v=yaVs--Nhuio
-
-
 * Dev Tools - https://github.com/facebook/react-devtools/tree/master/packages/react-devtools

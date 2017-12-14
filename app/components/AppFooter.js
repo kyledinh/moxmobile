@@ -36,7 +36,7 @@ export default class AppFooter extends Component {
     return (
         <Footer>
           <FooterTab>
-            <Button active={this.checkActive('starwars')} onPress={()=> {this.tabAction('news')}}>
+            <Button active={this.checkActive('news')} onPress={()=> {this.tabAction('news')}}>
               <Icon name="ios-paper" />
               <Text>News</Text>
             </Button>
