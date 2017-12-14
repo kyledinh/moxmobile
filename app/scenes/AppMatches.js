@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Body, Button, Card, CardItem, Container, Content, H3, Header, Icon, Left, Picker, Right, Thumbnail, Title } from 'native-base';
+import GameMinesweep from '../components/GameMinesweep';
+
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { fetchMatchesFromAPI } from '../redux/actions';
@@ -49,6 +51,21 @@ class AppMatches extends Component {
                 </Card>
             );
         });
+
+        const minesweepBlock = ()=> {
+            return (
+                <Card>
+                    <CardItem>
+                        <H3>Minesweep Game</H3>
+                    </CardItem>
+                    <CardItem>
+                        <GameMinesweep row="6" col="8" bombs="3"/>
+                    </CardItem>
+                </Card>
+            );
+        };
+
+
         return (
             <Container>
             <Header>
@@ -73,6 +90,7 @@ class AppMatches extends Component {
                     <Text>Reset Matches</Text>
                 </Button>
                 {matchesBlock}
+                {minesweepBlock()}
             </Content>
             </Container>
         );
