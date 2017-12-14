@@ -61,9 +61,11 @@ class AppMatches extends Component {
                     <Title>Matches</Title>
                 </Body>
                 <Right>
+                    {/*
                     <Button transparent onPress={() => Actions.matchadd()}>
                         <Icon name='md-add' />
                     </Button>
+                    */}
                 </Right>
             </Header>
             <Content style={{marginTop:0}}>

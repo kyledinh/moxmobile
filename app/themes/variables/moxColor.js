@@ -9,6 +9,14 @@ const platformStyle = undefined;
 const isIphoneX = platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
 
 export default {
+  // Angel Armor Color Palette
+  // http://www.color-hex.com/color-palette/50646
+  angelDarker: "#6a5b40",
+  angelDark: "#ac956a",
+  angelWhite: "#ffffff",
+  angelMed: "#c2c2c2",
+  angelLight: "#e2e2e2",
+
   platformStyle,
   platform,
   // AndroidRipple
@@ -109,8 +117,8 @@ export default {
   cardDefaultBg: "#fff",
 
   // Color
-  brandPrimary: "#2874F0",
-  brandInfo: "#62B1F6",
+  brandPrimary: "#ac956a", //"#2874F0",
+  brandInfo:  "#ac956a", //"#62B1F6",
   brandSuccess: "#5cb85c",
   brandDanger: "#d9534f",
   brandWarning: "#f0ad4e",
@@ -134,16 +142,16 @@ export default {
 
   // Footer
   footerHeight: isIphoneX ? 89 : 55,
-  footerDefaultBg: "#2874F0",
+  footerDefaultBg: "#6a5b40",
   footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
-  tabBarTextColor: "#8bb3f4",
+  tabBarTextColor: "#e2e2e2",
   tabBarTextSize: platform === "ios" ? 14 : 11,
-  activeTab: platform === "ios" ? "#007aff" : "#fff",
-  sTabBarActiveTextColor: "#007aff",
+  activeTab: platform === "ios" ? this.angelDarker : "#fff",
+  sTabBarActiveTextColor: "#6a5b40",
   tabBarActiveTextColor: "#fff",
-  tabActiveBgColor: platform === "ios" ? "#1569f4" : undefined,
+  tabActiveBgColor: platform === "ios" ? this.angelDarker : undefined,
 
   // Tab
   tabDefaultBg: "#2874F0",
@@ -155,7 +163,7 @@ export default {
 
   // Header
   toolbarBtnColor: "#fff",
-  toolbarDefaultBg: "#2874F0",
+  toolbarDefaultBg: "#6a5b40",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarIconSize: platform === "ios" ? 20 : 22,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,

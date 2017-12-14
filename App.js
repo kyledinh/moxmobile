@@ -10,7 +10,7 @@ import AppFooter from './app/components/AppFooter';
 import AppLoading from './app/components/AppLoading';
 
 import getTheme from './app/themes/components';
-import deciderColor from './app/themes/variables/deciderColor';
+import moxColor from './app/themes/variables/moxColor';
 
 import AppAbout from './app/scenes/AppAbout';
 import AppHome from './app/scenes/AppHome';
@@ -54,7 +54,7 @@ export default class App extends Component<{}> {
         }
         return (
             <Provider store={store}>
-            <StyleProvider style={getTheme(deciderColor)}>
+            <StyleProvider style={getTheme(moxColor)}>
                 <Container>
                     <Router>
                         <Scene key="home" component={AppHome} hideNavBar={true}/>
