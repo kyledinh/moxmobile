@@ -1,9 +1,11 @@
 # MoxMobile
 > This is a starter template for a cross-platform (IOS/Android) mobile app that uses React-Native, NavtiveBase Flux Router and Redux. It includes functioning navigation, custom components, styling themes, api calls and async data persistence.
 
-<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-cards.png" width="240" />
-<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-minesweep.png" width="240" style="margin-left: 10px; margin-right: 10px;"/>
-<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-news.png" width="240" />
+<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-cards.png" width="240"  align="left" />
+<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-minesweep.png" width="240" style="margin-left: 10px; margin-right: 10px;"  align="left" />
+<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-news.png" width="240"  align="left" />
+
+<br clear="all"/>
 
 ## Dev
 * `react-native init Decider;  mv Decider decider;`
