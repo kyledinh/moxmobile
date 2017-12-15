@@ -16,12 +16,10 @@ export default class GameMindsweep extends Component {
             col: props.col,
             bombs: props.bomb
         };
-        //this.clickTile = this.clickTile.bind(this);
-
     }
 
     clickTile(x, y) {
-        this.state.game.click(x, y);
+        var click = this.state.game.click(x, y);
         alert(x + " : " + y);
         this.forceUpdate();
     }

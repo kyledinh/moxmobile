@@ -1,6 +1,10 @@
 # MoxMobile
 > This is a starter template for a cross-platform (IOS/Android) mobile app that uses React-Native, NavtiveBase Flux Router and Redux. It includes functioning navigation, custom components, styling themes, api calls and async data persistence.
 
+<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-cards.png" width="240" />
+<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-minesweep.png" width="240" style="margin-left: 10px; margin-right: 10px;"/>
+<img src="https://raw.github.com/kyledinh/moxmobile/master/assets/screen-news.png" width="240" />
+
 ## Dev
 * `react-native init Decider;  mv Decider decider;`
 * `npm install native-base --save`
@@ -25,11 +29,13 @@
 | react   | 16.0.0 ||
 | react-native | 0.50.4 ||
 | react-navigation | @1.0.0-beta.21 ||
-| native-base |||
-| react-native-router-flux | 3.38.0 ||
-| redux |||
-| react-redux |||
-| redux-thunk |||
+| native-base | 2.3.5 ||
+| react-native-router-flux | 3.43.0 ||
+| redux | 3.7.2 ||
+| react-redux | 5.0.6 ||
+| redux-thunk | 2.2.0 ||
+
+
 
 ## NativeBase
 Create custom theme
