@@ -2,18 +2,25 @@ import { Sys } from '../System';
 import initialdata from  '../data/initialdata';
 
 export function fetchPlayersFromAPI() {
+    // return (dispatch) => {
+    //     dispatch(getPlayers());
+    //     dispatch(getPlayersSuccess(initialdata.players));
+    // }
+
     return (dispatch) => {
         dispatch(getPlayers());
-        dispatch(getPlayersSuccess(initialdata.players));
-
-        // fetch('https://swapi.co/api/people/')
-        //     .then(data => data.json())
-        //     .then(json => {
-        //         console.log('json:', json)
-        //         dispatch(getPeopleSuccess(json.results))
-        //     })
-        //     .catch(err => dispatch(getPeopleFailure(err)));
+        fetch('https://maalbox.com/washer?name=MOX_RFN&wins=MOX_RI_100&points=MOX_RI_1000',
+            { method: "POST",
+              body:  JSON.stringify(initialdata.players)
+            })
+            .then(data => data.json())
+            .then(jsarr => {
+                console.log('json:', jsarr)
+                dispatch(getPlayersSuccess(jsarr))
+            })
+            .catch(err => dispatch(getPlayersFailure(err)));
     }
+
 }
 
 export function getPlayers() {
