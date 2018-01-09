@@ -74,6 +74,18 @@ AndroidManifest.xml
      android:icon="@drawable/icons"
 ```
 
+## Android OS
+
+* https://en.wikipedia.org/wiki/Android_version_history
+
+| Code name            | Version      | API level    |
+|----------------------|--------------|--------------|
+| Kit Kat              | 4.4 - 4.4.4  | 19 - 20  (unsupported) |
+| Lollipop             | 5.0 - 5.1.1  | 21 - 22      |
+| Marshmallow          | 6.0 - 6.0.1  | 23           |
+| Nougat               | 7.0 - 7.1.2  | 24 - 25      |
+| Oreo                 | 8.0 - 8.1    | 26 - 27      |
+
 * Splash Screen - https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae
 * Splash Screen - https://github.com/crazycodeboy/react-native-splash-screen
 * Image Asset Tool - http://apetools.webprofusion.com/tools/imagegorilla
