@@ -19,6 +19,10 @@
 ### Rebuild Cache
 * `react-native start --reset-cache`
 
+### Build Android Signed APK
+* `cd android && ./gradlew assembleRelease`
+* https://facebook.github.io/react-native/docs/signed-apk-android.html
+
 ## Dependencies
 
 `npm list | grep <package>`
@@ -80,6 +84,7 @@ AndroidManifest.xml
 
 | Code name            | Version      | API level    |
 |----------------------|--------------|--------------|
+| Jelly Bean           | 4.1 - 4.3.1  | 16 - 18  (unsupported) |
 | Kit Kat              | 4.4 - 4.4.4  | 19 - 20  (unsupported) |
 | Lollipop             | 5.0 - 5.1.1  | 21 - 22      |
 | Marshmallow          | 6.0 - 6.0.1  | 23           |
