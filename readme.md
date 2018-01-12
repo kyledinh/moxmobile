@@ -8,7 +8,7 @@
 <br clear="all"/>
 
 ## Dev
-* `react-native init Decider;  mv Decider decider;`
+* `react-native init MoxMobile;  mv MoxMobile moxmobile;`
 * `npm install native-base --save`
 * `react-native link`
 * `npm install react-native-router-flux@3.38.0 --save`

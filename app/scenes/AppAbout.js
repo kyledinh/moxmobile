@@ -6,57 +6,54 @@ import { Sys }  from '../System';
 
 export default class AppAbout extends Component {
 
-    constructor() {
-        super();
-    }
+  constructor() {
+      super();
+  }
 
-    render() {
-        return (
-            <Container>
-            <Header>
-                <Left>
-                    <Button transparent onPress={() => Actions.pop()}>
-                        <Icon name='arrow-back' />
-                    </Button>
-                </Left>
+  render() {
+    return (
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => Actions.pop()}>
+                <Icon name='arrow-back' />
+            </Button>
+          </Left>
+          <Body>
+              <Title>About</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+            </Button>
+          </Right>
+        </Header>
+
+        <Content style={{marginTop:0}}>
+          <Card >
+            <CardItem>
+              <Left>
+                <Thumbnail source={require('../img/team-kyle-profile.jpg')} />
                 <Body>
-                    <Title>About</Title>
+                  <Text>Kyle Dinh, programmer</Text>
+                  <Text>kyledinh@gmail.com</Text>
                 </Body>
-                <Right>
-                <Button transparent>
-
-                </Button>
-                </Right>
-            </Header>
-
-            <Content style={{marginTop:0}}>
-            <Card >
-                <CardItem>
-                  <Left>
-                    <Thumbnail source={require('../img/team-kyle-profile.jpg')} />
-                    <Body>
-                      <Text>Kyle Dinh, programmer</Text>
-                      <Text>kyledinh@gmail.com</Text>
-                    </Body>
-                  </Left>
-                </CardItem>
-            </Card>
-            <Card >
-                <CardItem>
-
-                    <Body>
-                      <Text>{ Sys.APP_NAME }</Text>
-                      <Text>v1.0.0</Text>
-                      <Text>Built 2017.12.13</Text>
-                      <Text>{ Sys.REPO_SOURCE }</Text>
-                    </Body>
-
-                </CardItem>
-            </Card>
-            </Content>
-            </Container>
-        )
-    }
+              </Left>
+            </CardItem>
+          </Card>
+          <Card >
+            <CardItem>
+                <Body>
+                  <Text>{ Sys.APP_NAME }</Text>
+                  <Text>v1.0.0</Text>
+                  <Text>Built 2017.12.13</Text>
+                  <Text>{ Sys.REPO_SOURCE }</Text>
+                </Body>
+            </CardItem>
+          </Card>
+        </Content>
+      </Container>
+    )
+  }
 }
 
 module.export = AppAbout;

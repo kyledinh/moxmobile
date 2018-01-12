@@ -5,10 +5,10 @@ import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 
 export default function configureStore() {
-    let store =  createStore(
-        rootReducer,
-        undefined,
-        compose(applyMiddleware(thunk),autoRehydrate())
-    );
-    return store;
+  let store =  createStore(
+    rootReducer,
+    undefined,
+    compose(applyMiddleware(thunk),autoRehydrate())
+  );
+  return store;
 }

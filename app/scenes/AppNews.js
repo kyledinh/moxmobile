@@ -10,84 +10,83 @@ import { Cfg, Sys } from '../System';
 
 class AppNews extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    componentDidMount() {
-        //this.props.getNews();
-    }
+  componentDidMount() {
+    //this.props.getNews();
+  }
 
-    render() {
-        let { news, isFetching, error } = this.props.news;
-        return (
-            <Container>
-            <Header>
-                <Left>
-                    <Button transparent onPress={() => Actions.pop()}>
-                        <Icon name='arrow-back' />
-                    </Button>
-                </Left>
-                <Body>
-                    <Title>News</Title>
-                </Body>
-                <Right>
-                <Button transparent>
+  render() {
+    let { news, isFetching, error } = this.props.news;
+    return (
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => Actions.pop()}>
+              <Icon name='arrow-back' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>News</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+            </Button>
+          </Right>
+        </Header>
 
-                </Button>
-                </Right>
-            </Header>
+        <Content style={{marginTop:0, marginLeft:5, marginRight:5}}>
+          <Text style={{marginTop:10, marginBottom:10}}>
+            This screen can load news info from an external API.
+            Then stores them in the Async store.
+          </Text>
 
-            <Content style={{marginTop:0, marginLeft:5, marginRight:5}}>
-                <Text style={{marginTop:10, marginBottom:10}}>
-                    This screen can load news info from an external API.
-                    Then stores them in the Async store.
-                </Text>
+          <Button block info onPress={() => this.props.getNews()}>
+            <Text>Reload Netherlands Air Quality</Text>
+          </Button>
+          {
+            isFetching && <Spinner color='blue'/>
+          }
 
-                <Button block info onPress={() => this.props.getNews()}>
-                    <Text>Reload Netherlands Air Quality</Text>
-                </Button>
-                {
-                    isFetching && <Spinner color='blue'/>
-                }
-
-                {
-                    news.length ? (
-                        news.map((news, i) => {
-                            return (
-                                <Card key={i}>
-                                    <CardItem header>
-                                        <Icon style={{fontSize:48, marginRight:10}} name="image" />
-                                        <Text style={{marginRight: 10}}>{news.city}</Text>
-                                    </CardItem>
-                                    <CardItem>
-                                        <Body>
-                                            <Text>Count: {news.count}</Text>
-                                            <Text>Country: {news.country}</Text>
-                                            <Text>Location: {news.location}</Text>
-                                        </Body>
-                                    </CardItem>
-                                </Card>
-                            )
-                        })
-                    ) : null
-                }
-            </Content>
-            </Container>
-        );
-    }
+          {
+            news.length ? (
+              news.map((news, i) => {
+                return (
+                  <Card key={i}>
+                    <CardItem header>
+                      <Icon style={{fontSize:48, marginRight:10}} name="image" />
+                      <Text style={{marginRight: 10}}>{news.city}</Text>
+                    </CardItem>
+                    <CardItem>
+                      <Body>
+                        <Text>Count: {news.count}</Text>
+                        <Text>Country: {news.country}</Text>
+                        <Text>Location: {news.location}</Text>
+                      </Body>
+                    </CardItem>
+                  </Card>
+                )
+              })
+            ) : null
+          }
+        </Content>
+      </Container>
+    );
+  }
 }
 
 function mapStateToProps (state) {
-    return {
-        news: state.news
-    }
+  return {
+    news: state.news
+  }
 }
 
 function mapDispatchToProps (dispatch) {
-    return {
-        getNews: () => dispatch(fetchNewsFromAPI())
-    }
+  return {
+    getNews: () => dispatch(fetchNewsFromAPI())
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppNews);

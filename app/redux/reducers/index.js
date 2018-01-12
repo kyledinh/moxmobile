@@ -6,7 +6,7 @@ import matches from './matches';
 import news from './news';
 
 const rootReducer = combineReducers({
-    people, players, teams, matches, news
+  people, players, teams, matches, news
 })
 
 export default rootReducer;

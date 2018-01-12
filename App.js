@@ -29,48 +29,48 @@ const store = configureStore();
 
 export default class App extends Component<{}> {
 
-    constructor() {
-        super()
-        this.state = {
-            isStoreLoaded: false,
-            books: initialdata.books
-        };
-    }
+  constructor() {
+    super()
+    this.state = {
+      isStoreLoaded: false,
+      books: initialdata.books
+    };
+  }
 
-    componentDidMount() {
-        persistStore(
-            store,
-            {
-              storage: AsyncStorage,
-              blacklist: ['news']
-            },
-            () => { this.setState({isStoreLoaded: true}); }
-        );
-    }
+  componentDidMount() {
+    persistStore(
+      store,
+      {
+        storage: AsyncStorage,
+        blacklist: ['news']
+      },
+      () => { this.setState({isStoreLoaded: true}); }
+    );
+  }
 
-    render() {
-        if (!this.state.isStoreLoaded) {
-            return <AppLoading/>
-        }
-        return (
-            <Provider store={store}>
-            <StyleProvider style={getTheme(moxColor)}>
-                <Container>
-                    <Router>
-                        <Scene key="home" component={AppHome} hideNavBar={true}/>
-                        <Scene key="matches" component={AppMatches} hideNavBar={true}/>
-                        <Scene key="teams" component={AppTeams} hideNavBar={true}/>
-                        <Scene key="teamadd" component={AppTeamAdd} hideNavBar={true}/>
-                        <Scene key="players" component={AppPlayers} hideNavBar={true}/>
-                        <Scene key="player" component={AppPlayer} players={this.state.players} hideNavBar={true}/>
-                        <Scene key="playeradd" component={AppPlayerAdd} hideNavBar={true}/>
-                        <Scene key="about" component={AppAbout} hideNavBar={true}/>
-                        <Scene key="news" component={AppNews} hideNavBar={true}/>
-                    </Router>
-                    <AppFooter/>
-                </Container>
-            </StyleProvider>
-            </Provider>
-        );
+  render() {
+    if (!this.state.isStoreLoaded) {
+      return <AppLoading/>
     }
+    return (
+      <Provider store={store}>
+        <StyleProvider style={getTheme(moxColor)}>
+          <Container>
+            <Router>
+              <Scene key="home" component={AppHome} hideNavBar={true}/>
+              <Scene key="matches" component={AppMatches} hideNavBar={true}/>
+              <Scene key="teams" component={AppTeams} hideNavBar={true}/>
+              <Scene key="teamadd" component={AppTeamAdd} hideNavBar={true}/>
+              <Scene key="players" component={AppPlayers} hideNavBar={true}/>
+              <Scene key="player" component={AppPlayer} players={this.state.players} hideNavBar={true}/>
+              <Scene key="playeradd" component={AppPlayerAdd} hideNavBar={true}/>
+              <Scene key="about" component={AppAbout} hideNavBar={true}/>
+              <Scene key="news" component={AppNews} hideNavBar={true}/>
+            </Router>
+            <AppFooter/>
+          </Container>
+        </StyleProvider>
+      </Provider>
+    );
+  }
 }
