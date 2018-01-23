@@ -23,9 +23,9 @@ export default class AppBooks extends Component {
       );
     });
     return (
-        <Content style={{marginTop:75}}>
+      <Content style={{marginTop:75}}>
         {books}
-        </Content>
+      </Content>
     )
   }
 }
