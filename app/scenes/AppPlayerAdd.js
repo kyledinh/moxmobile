@@ -116,8 +116,8 @@ class AppPlayerAdd extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({
   players: state.players
-};
+});
 
 export default connect(mapStateToProps)(AppPlayerAdd);

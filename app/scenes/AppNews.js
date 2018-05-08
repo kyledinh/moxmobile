@@ -78,12 +78,12 @@ class AppNews extends Component {
   }
 }
 
-const mapStateToProps = (state) =>  {
+const mapStateToProps = (state) =>  ({
   news: state.news
-};
+});
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => ({
   getNews: () => dispatch(fetchNewsFromAPI())
-};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppNews);

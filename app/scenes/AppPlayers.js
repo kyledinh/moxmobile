@@ -75,12 +75,12 @@ class AppPlayers extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({
   players: state.players
-};
+});
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => ({
   getPlayers: () => dispatch(fetchPlayersFromAPI())
-};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppPlayers);
