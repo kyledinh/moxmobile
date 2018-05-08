@@ -20,7 +20,7 @@ export default class GameMindsweep extends Component {
 
   clickTile(x, y) {
     var click = this.state.game.click(x, y);
-    alert(x + " : " + y);
+    console.log("tapped: ", x + " : " + y);
     this.forceUpdate();
   }
 

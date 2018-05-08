@@ -12,6 +12,5 @@ export default class AppLoading extends Component {
       </Content>
     )
   }
-
 }
 module.export = AppLoading;

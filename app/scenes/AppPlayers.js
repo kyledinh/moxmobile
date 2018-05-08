@@ -75,16 +75,12 @@ class AppPlayers extends Component {
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    players: state.players
-  }
-}
+const mapStateToProps = (state) => {
+  players: state.players
+};
 
-function mapDispatchToProps (dispatch) {
-  return {
-    getPlayers: () => dispatch(fetchPlayersFromAPI())
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+  getPlayers: () => dispatch(fetchPlayersFromAPI())
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppPlayers);

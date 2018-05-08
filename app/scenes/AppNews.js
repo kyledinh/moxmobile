@@ -15,7 +15,29 @@ class AppNews extends Component {
   }
 
   componentDidMount() {
-    //this.props.getNews();
+    this.props.getNews();
+  }
+
+  renderNews = (news) => {
+    if (news != undefined && news.length) {
+      return news.map((news, i) => {
+        return (
+          <Card key={i}>
+            <CardItem header>
+              <Icon style={{fontSize:48, marginRight:10}} name="image" />
+              <Text style={{marginRight: 10}}>{news.city}</Text>
+            </CardItem>
+            <CardItem>
+              <Body>
+                <Text>Count: {news.count}</Text>
+                <Text>Country: {news.country}</Text>
+                <Text>Location: {news.location}</Text>
+              </Body>
+            </CardItem>
+          </Card>
+        )
+      });
+    }
   }
 
   render() {
@@ -46,47 +68,22 @@ class AppNews extends Component {
           <Button block info onPress={() => this.props.getNews()}>
             <Text>Reload Netherlands Air Quality</Text>
           </Button>
-          {
-            isFetching && <Spinner color='blue'/>
-          }
 
-          {
-            news.length ? (
-              news.map((news, i) => {
-                return (
-                  <Card key={i}>
-                    <CardItem header>
-                      <Icon style={{fontSize:48, marginRight:10}} name="image" />
-                      <Text style={{marginRight: 10}}>{news.city}</Text>
-                    </CardItem>
-                    <CardItem>
-                      <Body>
-                        <Text>Count: {news.count}</Text>
-                        <Text>Country: {news.country}</Text>
-                        <Text>Location: {news.location}</Text>
-                      </Body>
-                    </CardItem>
-                  </Card>
-                )
-              })
-            ) : null
-          }
+          { isFetching && <Spinner color='blue'/> }
+          { this.renderNews(news) }
+
         </Content>
       </Container>
     );
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    news: state.news
-  }
-}
+const mapStateToProps = (state) =>  {
+  news: state.news
+};
 
-function mapDispatchToProps (dispatch) {
-  return {
-    getNews: () => dispatch(fetchNewsFromAPI())
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+  getNews: () => dispatch(fetchNewsFromAPI())
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppNews);

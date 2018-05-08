@@ -90,12 +90,9 @@ class AppTeamAdd extends Component {
   }
 }
 
-// const mapStatToProps = (state) => ({ player: state.players })
-function mapStateToProps (state) {
-  return {
-    teams: state.teams,
-    players: state.players
-  }
-}
+const mapStateToProps = (state) => {
+  teams: state.teams,
+  players: state.players
+};
 
 export default connect(mapStateToProps)(AppTeamAdd);
