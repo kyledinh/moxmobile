@@ -1,5 +1,7 @@
 export const Sys = {
   APP_NAME : 'MoxMobile',
+  VERSION: 'v1.0.0',
+  BUILD_DATE: '2018.5.8',
   REPO_SOURCE: 'https://github.com/mockingbox/moxmobile',
   FETCHING_MATCHES : 'FETCHING_MATCHES',
   FETCHING_MATCHES_SUCCESS : 'FETCHING_MATCHES_SUCCESS',

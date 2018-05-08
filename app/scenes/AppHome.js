@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { Text, View } from 'react-native';
 import { Body, Button, Card, CardItem, Container, Content, Icon, Spinner } from 'native-base';
-import { connect } from 'react-redux';
-import { fetchPlayersFromAPI } from '../redux/actions';
 
 import AppHeader from '../components/AppHeader';
 import { Cfg, Sys } from '../System';
-import { Actions } from 'react-native-router-flux';
+import { fetchPlayersFromAPI } from '../redux/actions';
 
 class AppHome extends Component {
 
   constructor(props) {
-      super(props);
+    super(props);
   }
 
   render() {
@@ -50,19 +50,15 @@ class AppHome extends Component {
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    players: state.players,
-    teams: state.teams,
-    matches: state.matches,
-    news: state.news
-  }
-}
+const mapStateToProps = (state) => ({
+  players: state.players,
+  teams: state.teams,
+  matches: state.matches,
+  news: state.news
+});
 
-function mapDispatchToProps (dispatch) {
-  return {
-      getPlayers: () => dispatch(fetchPlayersFromAPI())
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  getPlayers: () => dispatch(fetchPlayersFromAPI())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppHome);

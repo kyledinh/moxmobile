@@ -9,6 +9,19 @@ import { fetchMatchesFromAPI } from '../redux/actions';
 
 class AppMatches extends Component {
 
+  minesweepBlock = ()=> {
+    return (
+      <Card>
+        <CardItem>
+          <H3>Minesweep Game</H3>
+        </CardItem>
+        <CardItem>
+          <GameMinesweep row="6" col="8" bombs="3"/>
+        </CardItem>
+      </Card>
+    );
+  };
+
   render() {
 
     function navAppMatch(data) {
@@ -52,20 +65,6 @@ class AppMatches extends Component {
       );
     });
 
-    const minesweepBlock = ()=> {
-      return (
-        <Card>
-          <CardItem>
-            <H3>Minesweep Game</H3>
-          </CardItem>
-          <CardItem>
-            <GameMinesweep row="6" col="8" bombs="3"/>
-          </CardItem>
-        </Card>
-      );
-    };
-
-
     return (
       <Container>
         <Header>
@@ -90,23 +89,19 @@ class AppMatches extends Component {
             <Text>Reset Matches</Text>
           </Button>
           {matchesBlock}
-          {minesweepBlock()}
+          { this.minesweepBlock() }
         </Content>
       </Container>
     );
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    matches: state.matches
-  }
-}
+const mapStateToProps = (state) => ({
+  matches: state.matches
+});
 
-function mapDispatchToProps (dispatch) {
-  return {
-    getMatches: () => dispatch(fetchMatchesFromAPI())
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  getMatches: () => dispatch(fetchMatchesFromAPI())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppMatches);

@@ -44,8 +44,8 @@ export default class AppAbout extends Component {
             <CardItem>
                 <Body>
                   <Text>{ Sys.APP_NAME }</Text>
-                  <Text>v1.0.0</Text>
-                  <Text>Built 2017.12.13</Text>
+                  <Text>{ Sys.VERSION }</Text>
+                  <Text>{ Sys.BUILD_DATE }</Text>
                   <Text>{ Sys.REPO_SOURCE }</Text>
                 </Body>
             </CardItem>
