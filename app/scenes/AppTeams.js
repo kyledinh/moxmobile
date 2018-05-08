@@ -31,23 +31,11 @@ class AppTeams extends Component {
         </ListItem>
       );
     });
-  }
+  };
 
-  render() {
-    const navAppPlayer = this.NavAppPlayer;
-    const renderPlayers = this.RenderPlayers;
-
-    const findPlayerById = (arr, id)  => {
-      return arr.find((el)=> el.id === id);
-    };
-
-    let { players, isFetching } = this.props.players;
-    let { teams } = this.props.teams;
-
-    let teamsBlock = teams.map(function (team, index) {
-      
+  RenderTeams = (teams, players, findPlayerById, navAppPlayer, renderPlayers) => {
+    return teams.map(function (team, index) {
       let playersBlock = renderPlayers(team, players, findPlayerById, navAppPlayer);
-
       return (
         <Card key={index}>
           <CardItem button>
@@ -89,8 +77,18 @@ class AppTeams extends Component {
           </CardItem>
         </Card>
       );
-
     });
+
+  };
+
+  render() {
+    const navAppPlayer = this.NavAppPlayer;
+    const renderPlayers = this.RenderPlayers;
+    const findPlayerById = (arr, id)  =>  arr.find((el)=> el.id === id);
+    const { players, isFetching } = this.props.players;
+    const { teams } = this.props.teams;
+
+    let renderedTeams = this.RenderTeams(teams, players, findPlayerById, navAppPlayer, renderPlayers);
 
     return (
       <Container>
@@ -110,7 +108,7 @@ class AppTeams extends Component {
           </Right>
         </Header>
         <Content style={{marginTop:0}}>
-          {teamsBlock}
+          { renderedTeams }
         </Content>
       </Container>
     );
