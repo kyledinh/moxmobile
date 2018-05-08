@@ -50,11 +50,11 @@ export default {
 
   // Segment
   segmentBackgroundColor: "#fff",
-  segmentActiveBackgroundColor: "#0099cc",
+  segmentActiveBackgroundColor: "#ac956a",
   segmentTextColor: "#fff",
   segmentActiveTextColor: "#fff",
-  segmentBorderColor: "#0099cc",
-  segmentBorderColorMain: "#0099cc",
+  segmentBorderColor: "#ac956a",
+  segmentBorderColorMain: "#ac956a",
 
   // New Variable
   get defaultTextColor() {
