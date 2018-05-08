@@ -9,7 +9,7 @@ import { fetchMatchesFromAPI } from '../redux/actions';
 
 class AppMatches extends Component {
 
-  minesweepBlock = ()=> {
+  minesweepBlock = () => {
     return (
       <Card>
         <CardItem>
