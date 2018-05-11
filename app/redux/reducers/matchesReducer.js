@@ -1,26 +1,27 @@
 import { Sys } from '../../System';
+import initialdata from  '../../data/initialdata';
 
 const initialState = {
-  people: [],
+  matches: initialdata.matches,
   isFetching: false,
   error: false
 }
 
-export default function peopleReducer (state = initialState, action) {
+const matchesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Sys.FETCHING_PEOPLE:
+    case Sys.FETCHING_MATCHES:
       return {
         ...state,
-        people: [],
+        matches: [],
         isFetching: true
       }
-    case Sys.FETCHING_PEOPLE_SUCCESS:
+    case Sys.FETCHING_MATCHES_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        people: action.data
+        matches: action.data
       }
-    case Sys.FETCHING_PEOPLE_FAILURE:
+    case Sys.FETCHING_MATCHES_FAILURE:
       return {
         ...state,
         isFetching: false,
@@ -29,4 +30,6 @@ export default function peopleReducer (state = initialState, action) {
     default:
       return state
   }
-}
+};
+
+export default matches = matchesReducer;

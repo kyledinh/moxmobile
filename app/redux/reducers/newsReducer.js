@@ -7,7 +7,7 @@ const initialState = {
   error: false
 }
 
-export default function newsReducer (state = initialState, action) {
+const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case Sys.FETCHING_NEWS:
       return {
@@ -30,4 +30,6 @@ export default function newsReducer (state = initialState, action) {
     default:
       return state
   }
-}
+};
+
+export default news = newsReducer;
