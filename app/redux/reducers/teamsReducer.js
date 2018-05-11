@@ -7,7 +7,7 @@ const initialState = {
   error: false
 }
 
-export default function teamsReducer (state = initialState, action) {
+const teamsReducer = (state = initialState, action) => {
   switch (action.type) {
     case Sys.FETCHING_TEAMS:
       return {
@@ -30,4 +30,6 @@ export default function teamsReducer (state = initialState, action) {
     default:
       return state
   }
-}
+};
+
+export default teams = teamsReducer;

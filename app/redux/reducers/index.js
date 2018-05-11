@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import people from './people';
-import players from './players';
-import teams from './teams';
-import matches from './matches';
-import news from './news';
+import matches from './matchesReducer';
+import news from './newsReducer';
+import people from './peopleReducer';
+import players from './playersReducer';
+import teams from './teamsReducer';
 
 const rootReducer = combineReducers({
   people, players, teams, matches, news

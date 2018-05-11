@@ -2,37 +2,33 @@ import { Sys } from '../../System';
 import initialdata from  '../../data/initialdata';
 
 const initialState = {
-  players: initialdata.players,
   isFetching: false,
   error: false
 }
 
-export default function playersReducer (state = initialState, action) {
+const peopleReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Sys.FETCHING_PLAYERS:
+    case Sys.FETCHING_PEOPLE:
       return {
         ...state,
-        players: [],
+        people: [],
         isFetching: true
       }
-    case Sys.FETCHING_PLAYERS_SUCCESS:
+    case Sys.FETCHING_PEOPLE_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        players: action.data
+        people: action.data
       }
-    case Sys.FETCHING_PLAYERS_FAILURE:
+    case Sys.FETCHING_PEOPLE_FAILURE:
       return {
         ...state,
         isFetching: false,
         error: true
       }
-    case Sys.PLAYERS_ADD_NEW:
-      return {
-        ...state,
-        players: state.players.push(action.newPlayer)
-      }
     default:
       return state
   }
-}
+};
+
+export default people = peopleReducer;
