@@ -7,6 +7,35 @@
 
 <br clear="all"/>
 
+## Using MoxMobile as a Template for a New AppMatches
+
+These are instructions to start a new app and move only the bare files from MoxMobile.
+
+First create new project with the React Native CLI tool.
+```
+react-native init NewApp;
+mv NewApp newapp
+```
+Then copy files from MoxMobile that will give your new app the same sample functionality of MoxMobile.
+```
+cp moxmobile/project.sh newapp/.
+cp moxmobile/package.json newapp/.    (edit "name")
+cp moxmobile/App.js newapp/.
+cp moxmobile/app newapp/.
+```
+Install the node dependencies with npm or yarn, then link the native modules.
+```
+cd newapp/
+npm install  or  yarn
+react-native link
+```
+In two separate terminals run:
+```
+react-native start
+react-native run-ios
+```
+
+
 ## Dev
 * `react-native init MoxMobile;  mv MoxMobile moxmobile;`
 * `npm install native-base --save`
