@@ -39,7 +39,7 @@ class AppTeamAdd extends Component {
     };
     players.unshift(newPlayer);
     alert("Make New Player! " + newPlayer.name );
-    Actions.players();
+    NavigationService.navigate('Players');
   }
 
   render() {

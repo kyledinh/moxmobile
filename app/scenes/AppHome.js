@@ -45,7 +45,7 @@ class AppHome extends Component {
         <Button block info style={{marginLeft:8, marginRight:8}} onPress={() => this.props.getPlayers()}>
           <Text>Reset Players Default</Text>
         </Button>
-        <Button block info style={{marginLeft:8, marginRight:8, marginTop:8, marginBottom:8}} onPress={()=> {Actions.about()}}>
+        <Button block info style={{marginLeft:8, marginRight:8, marginTop:8, marginBottom:8}} onPress={()=> {NavigationService.navigate('About')}}>
           <Text>About App</Text>
         </Button>
       </Container>

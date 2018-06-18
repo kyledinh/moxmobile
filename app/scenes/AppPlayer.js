@@ -8,7 +8,7 @@ export default class AppPlayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      player: this.props.player
+      player: this.props.navigation.getParam('player', {}),
     }
   }
 

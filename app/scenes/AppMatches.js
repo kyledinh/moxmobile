@@ -29,7 +29,7 @@ class AppMatches extends Component {
   render() {
 
     function navAppMatch(data) {
-      Actions.match({'match':data});
+      NavigationService.navigate('Match', { match: data });
     }
 
     let { matches, isFetching } = this.props.matches;

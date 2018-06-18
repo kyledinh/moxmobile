@@ -14,7 +14,7 @@ class AppPlayers extends Component {
   render() {
 
     function navAppPlayer(data) {
-      Actions.player({'player':data});
+      NavigationService.navigate('Player', {'player':data});
     }
 
     let { players, isFetching } = this.props.players;

@@ -15,7 +15,7 @@ class AppTeams extends Component {
   };
 
   NavAppPlayer = (data) => {
-    Actions.player({'player':data})
+    NavigationService.navigate('Player', {'player':data} );
   };
 
   FindPlayerById = (arr, id)  => {
