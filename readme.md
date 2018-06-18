@@ -31,26 +31,16 @@ react-native link
 ```
 In two separate terminals run:
 ```
-react-native start
+react-native start --reset-cache
 react-native run-ios
 ```
-
-
-## Dev
-* `react-native init MoxMobile;  mv MoxMobile moxmobile;`
-* `npm install native-base --save`
-* `react-native link`
-* `npm install react-native-router-flux@3.38.0 --save`
-* `npm install react-redux --save`
-* `npm install redux-thunk --save`
-* `npm install --save redux-persist --save`
-
-### Rebuild Cache
-* `react-native start --reset-cache`
-
 ### Build Android Signed APK
 * `cd android && ./gradlew assembleRelease`
 * https://facebook.github.io/react-native/docs/signed-apk-android.html
+* Define the sdk location in `android/local.properties`
+```
+sdk.dir = /Users/kyle/Library/Android/sdk
+```
 
 ## Dependencies
 
@@ -70,7 +60,14 @@ react-native run-ios
 | react-redux | 5.0.6 ||
 | redux-thunk | 2.2.0 ||
 
-
+## How MoxMobile Was Built
+* `react-native init MoxMobile;  mv MoxMobile moxmobile;`
+* `npm install native-base --save`
+* `react-native link`
+* `npm install react-native-router-flux@3.38.0 --save`
+* `npm install react-redux --save`
+* `npm install redux-thunk --save`
+* `npm install --save redux-persist --save`
 
 ## NativeBase
 Create custom theme
@@ -78,6 +75,7 @@ Create custom theme
 * Move `native-base-theme` to `./app/themes`
 * Copy `./app/themes/variables/commonColor.js` to `moxColor.js`
 * To Use:
+
 ```
 import getTheme from './app/themes/components';
 import moxColor from './app/themes/variables/moxColor';
