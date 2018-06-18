@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, TextInput} from 'react-native';
-import { Body, Button, Card, CardItem, Container, Content, Form, H3, Header, Icon,
+import { Body, Button, Card, CardItem, Container, Content, Form, H3, Icon,
     Input, Item,Left, Segment, Picker, Right, Thumbnail, Title } from 'native-base';
-import { Actions } from 'react-native-router-flux';
+import NavigationService from '../../NavigationService';
 import { connect } from 'react-redux';
 import { Sys } from '../System';
 
@@ -17,6 +17,11 @@ class AppTeamAdd extends Component {
       skill: 3
     }
   }
+
+
+  static navigationOptions = {
+    title: 'Add Team',
+  };
 
   setTeam(value) {
     this.setState({
@@ -42,22 +47,6 @@ class AppTeamAdd extends Component {
     let { teams } = this.props.teams;
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Add Team</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-              <Icon name='menu' />
-            </Button>
-          </Right>
-        </Header>
-
         <Content style={{marginTop:60}}>
           <Body>
             <Thumbnail large source={require('../img/avatar-3.png')} />

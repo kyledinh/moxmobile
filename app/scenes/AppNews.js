@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import { Body, Button, Card, CardItem, Container, Content, Header, Icon, Left, Right, Spinner, Thumbnail, Title } from 'native-base';
+import { Body, Button, Card, CardItem, Container, Content, Icon, Left, Right, Spinner, Thumbnail, Title } from 'native-base';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
+import NavigationService from '../../NavigationService';
 
 import AppHeader from '../components/AppHeader';
 import { fetchNewsFromAPI } from '../redux/actions';
@@ -13,6 +13,10 @@ class AppNews extends Component {
   constructor(props) {
     super(props);
   }
+
+  static navigationOptions = {
+    title: 'News'
+  };
 
   componentDidMount() {
     this.props.getNews();
@@ -44,21 +48,6 @@ class AppNews extends Component {
     let { news, isFetching, error } = this.props.news;
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>News</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-            </Button>
-          </Right>
-        </Header>
-
         <Content style={{marginTop:0, marginLeft:5, marginRight:5}}>
           <Text style={{marginTop:10, marginBottom:10}}>
             This screen can load news info from an external API.

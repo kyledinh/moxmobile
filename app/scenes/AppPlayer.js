@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Body, Button, Card, CardItem, Container, Content, H3, Header, Icon, Left, Segment, Right, Thumbnail, Title } from 'native-base';
-import { Actions } from 'react-native-router-flux';
+import { Body, Button, Card, CardItem, Container, Content, H3, Icon, Left, Segment, Right, Thumbnail, Title } from 'native-base';
+import NavigationService from '../../NavigationService';
 
 export default class AppPlayer extends Component {
 
@@ -11,6 +11,10 @@ export default class AppPlayer extends Component {
       player: this.props.player
     }
   }
+
+  static navigationOptions = {
+    title: 'Player',
+  };
 
   setSkill = (n) => {
     var p = this.state.player;
@@ -51,19 +55,6 @@ export default class AppPlayer extends Component {
   render() {
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-              <Title>{this.state.player.name}</Title>
-          </Body>
-          <Right>
-          </Right>
-        </Header>
-
         <Content style={{marginTop:0}}>
           <Card >
             <CardItem>

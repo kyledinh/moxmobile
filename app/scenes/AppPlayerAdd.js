@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, TextInput} from 'react-native';
-import { Body, Button, Card, CardItem, Container, Content, Form, H3, Header, Icon,
-    Input, Item,Left, Segment, Picker, Right, Thumbnail, Title } from 'native-base';
-import { Actions } from 'react-native-router-flux';
+import { Body, Button, Card, CardItem, Container, Content, Form, H3, Icon,
+    Input, Item, Left, Segment, Picker, Right, Thumbnail, Title } from 'native-base';
+import NavigationService from '../../NavigationService';
 import { connect } from 'react-redux';
 import { Sys } from '../System';
 
@@ -17,6 +17,10 @@ class AppPlayerAdd extends Component {
       skill: 3
     }
   }
+
+  static navigationOptions = {
+    title: 'Add Player',
+  };
 
   setSkill(n) {
     this.setState({ skill: n });
@@ -47,22 +51,6 @@ class AppPlayerAdd extends Component {
     let { players } = this.props.players;
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Add Player</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-              <Icon name='menu' />
-            </Button>
-          </Right>
-        </Header>
-
         <Content style={{marginTop:60}}>
           <Body>
             <Thumbnail large source={require('../img/avatar-1.png')} />
