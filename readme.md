@@ -55,7 +55,6 @@ sdk.dir = /Users/kyle/Library/Android/sdk
 | react-native | 0.50.4 ||
 | react-navigation | @1.0.0-beta.21 ||
 | native-base | 2.3.5 ||
-| react-native-router-flux | 3.43.0 ||
 | redux | 3.7.2 ||
 | react-redux | 5.0.6 ||
 | redux-thunk | 2.2.0 ||
@@ -64,7 +63,7 @@ sdk.dir = /Users/kyle/Library/Android/sdk
 * `react-native init MoxMobile;  mv MoxMobile moxmobile;`
 * `npm install native-base --save`
 * `react-native link`
-* `npm install react-native-router-flux@3.38.0 --save`
+* `npm install react-navigation --save`
 * `npm install react-redux --save`
 * `npm install redux-thunk --save`
 * `npm install --save redux-persist --save`

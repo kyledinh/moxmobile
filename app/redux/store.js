@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 export default function configureStore() {
   let store =  createStore(
     rootReducer,
-    undefined,
+    process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     compose(applyMiddleware(thunk),autoRehydrate())
   );
   return store;
