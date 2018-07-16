@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
+import NavigationService from '../../NavigationService';
+
 import { Text, View } from 'react-native';
 import { Body, Button, Card, CardItem, Container, Content, Icon, Spinner } from 'native-base';
 
@@ -14,6 +15,9 @@ class AppHome extends Component {
     super(props);
   }
 
+  static navigationOptions = {
+    title: 'Home'
+  };
   render() {
     let { players, isFetching } = this.props.players;
     let { teams } = this.props.teams;
@@ -22,7 +26,6 @@ class AppHome extends Component {
 
     return (
       <Container>
-        <AppHeader/>
         <Content style={{marginTop:0, marginLeft:5, marginRight:5}}>
           <Card>
             <CardItem header>
@@ -42,7 +45,7 @@ class AppHome extends Component {
         <Button block info style={{marginLeft:8, marginRight:8}} onPress={() => this.props.getPlayers()}>
           <Text>Reset Players Default</Text>
         </Button>
-        <Button block info style={{marginLeft:8, marginRight:8, marginTop:8, marginBottom:8}} onPress={()=> {Actions.about()}}>
+        <Button block info style={{marginLeft:8, marginRight:8, marginTop:8, marginBottom:8}} onPress={()=> {NavigationService.navigate('About')}}>
           <Text>About App</Text>
         </Button>
       </Container>

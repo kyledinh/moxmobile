@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Body, Button, Card, CardItem, Container, Content, H3, Header, Icon, Left, Picker, Right, Thumbnail, Title } from 'native-base';
-import { Actions } from 'react-native-router-flux';
+import { Body, Button, Card, CardItem, Container, Content, H3, Icon, Left, Picker, Right, Thumbnail, Title } from 'native-base';
+import NavigationService from '../../NavigationService';
 import { connect } from 'react-redux';
 import AvatarPerson from '../components/AvatarPerson';
 
 class AppPlayers extends Component {
 
+  static navigationOptions = {
+    title: 'Players',
+  };
+
   render() {
 
     function navAppPlayer(data) {
-      Actions.player({'player':data});
+      NavigationService.navigate('Player', {'player':data});
     }
 
     let { players, isFetching } = this.props.players;
@@ -52,21 +56,6 @@ class AppPlayers extends Component {
     });
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Players</Title>
-          </Body>
-          <Right>
-            <Button transparent onPress={() => Actions.playeradd()}>
-              <Icon name='md-add' />
-            </Button>
-          </Right>
-        </Header>
         <Content style={{marginTop:0}}>
           {playersBlock}
         </Content>

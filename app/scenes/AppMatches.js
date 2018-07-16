@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Body, Button, Card, CardItem, Container, Content, H3, Header, Icon, Left, Picker, Right, Thumbnail, Title } from 'native-base';
+import { Body, Button, Card, CardItem, Container, Content, H3, Icon, Left, Picker, Right, Thumbnail, Title } from 'native-base';
 import GameMinesweep from '../components/GameMinesweep';
 
-import { Actions } from 'react-native-router-flux';
+import NavigationService from '../../NavigationService';
 import { connect } from 'react-redux';
 import { fetchMatchesFromAPI } from '../redux/actions';
 
 class AppMatches extends Component {
+
+  static navigationOptions = {
+    title: 'Matches'
+  };
 
   minesweepBlock = () => {
     return (
@@ -25,7 +29,7 @@ class AppMatches extends Component {
   render() {
 
     function navAppMatch(data) {
-      Actions.match({'match':data});
+      NavigationService.navigate('Match', { match: data });
     }
 
     let { matches, isFetching } = this.props.matches;
@@ -67,23 +71,6 @@ class AppMatches extends Component {
 
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-              <Title>Matches</Title>
-          </Body>
-          <Right>
-            {/*
-            <Button transparent onPress={() => Actions.matchadd()}>
-                <Icon name='md-add' />
-            </Button>
-            */}
-          </Right>
-        </Header>
         <Content style={{marginTop:0}}>
           <Button block info style={{marginLeft:8, marginRight:8, marginTop: 8}} onPress={() => this.props.getMatches()}>
             <Text>Reset Matches</Text>

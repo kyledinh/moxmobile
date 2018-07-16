@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Button, Container, Content, Footer, FooterTab, Header, Icon } from 'native-base';
-import { Actions } from 'react-native-router-flux';
+import NavigationService from '../../NavigationService';
 
 export default class AppFooter extends Component {
 
   constructor() {
     super();
-    this.state={activeTabName: 'home'}
+    this.state={activeTabName: 'Home'}
   }
 
   checkActive(tab) {
@@ -16,39 +16,26 @@ export default class AppFooter extends Component {
 
   tabAction(tab) {
     this.setState({'activeTabName':tab});
-
-    switch(tab) {
-      case 'news':
-        Actions.news();
-        break;
-      case 'matches':
-        Actions.matches();
-        break;
-      case 'teams':
-        Actions.teams();
-        break;
-      case 'players':
-        Actions.players();
-    }
+    NavigationService.navigate(tab);
   }
 
   render() {
     return (
       <Footer>
         <FooterTab>
-          <Button active={this.checkActive('news')} onPress={()=> {this.tabAction('news')}}>
+          <Button active={this.checkActive('News')} onPress={()=> {this.tabAction('News')}}>
             <Icon name="ios-paper" />
             <Text>News</Text>
           </Button>
-          <Button active={this.checkActive('matches')} onPress={()=> {this.tabAction('matches')}}>
+          <Button active={this.checkActive('Matches')} onPress={()=> {this.tabAction('Matches')}}>
             <Icon name="md-medal" />
             <Text>Matches</Text>
           </Button>
-          <Button active={this.checkActive('teams')} onPress={()=> {this.tabAction('teams')}}>
+          <Button active={this.checkActive('Teams')} onPress={()=> {this.tabAction('Teams')}}>
             <Icon name="ios-flag"/>
             <Text>Teams</Text>
           </Button>
-          <Button active={this.checkActive('players')} onPress={()=> {this.tabAction('players')}}>
+          <Button active={this.checkActive('Players')} onPress={()=> {this.tabAction('Players')}}>
             <Icon name="ios-contacts"/>
             <Text>Players</Text>
           </Button>

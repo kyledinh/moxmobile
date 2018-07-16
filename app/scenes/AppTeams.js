@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Actions } from 'react-native-router-flux';
+import NavigationService from '../../NavigationService';
 import { connect } from 'react-redux';
 import { Badge, Body, Button, Card, CardItem, Container, Content, H3, Header,
   Icon, Left, List, ListItem, Right, Thumbnail, Title } from 'native-base';
@@ -10,8 +10,12 @@ import AvatarTeam from '../components/AvatarTeam';
 
 class AppTeams extends Component {
 
+  static navigationOptions = {
+    title: 'Teams',
+  };
+
   NavAppPlayer = (data) => {
-    Actions.player({'player':data})
+    NavigationService.navigate('Player', {'player':data} );
   };
 
   FindPlayerById = (arr, id)  => {
@@ -92,21 +96,6 @@ class AppTeams extends Component {
 
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Teams</Title>
-          </Body>
-          <Right>
-            <Button transparent onPress={() => Actions.teamadd()}>
-              <Icon name='md-add' />
-            </Button>
-          </Right>
-        </Header>
         <Content style={{marginTop:0}}>
           { renderedTeams }
         </Content>

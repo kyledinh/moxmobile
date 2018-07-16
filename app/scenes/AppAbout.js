@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Body, Button, Card, CardItem, Container, Content, H3, Header, Icon, Left, Right, Thumbnail, Title } from 'native-base';
-import { Actions } from 'react-native-router-flux';
+import { Body, Button, Card, CardItem, Container, Content, H3, Icon, Left, Right, Thumbnail, Title } from 'native-base';
+import NavigationService from '../../NavigationService';
 import { Sys }  from '../System';
 
 export default class AppAbout extends Component {
@@ -10,24 +10,13 @@ export default class AppAbout extends Component {
       super();
   }
 
+  static navigationOptions = {
+    title: 'About',
+  };
+
   render() {
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-                <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-              <Title>About</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-            </Button>
-          </Right>
-        </Header>
-
         <Content style={{marginTop:0}}>
           <Card >
             <CardItem>

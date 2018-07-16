@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { AsyncStorage, View } from 'react-native';
-import { Container, StyleProvider } from 'native-base';
-import { Router, Scene } from 'react-native-router-flux';
+import { createStackNavigator } from 'react-navigation';
+import NavigationService from './NavigationService';
+
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
+import { Container, Root, StyleProvider } from 'native-base';
 
 import AppHeader from './app/components/AppHeader';
 import AppFooter from './app/components/AppFooter';
@@ -26,6 +28,32 @@ import configureStore from './app/redux/store';
 import initialdata from  './app/data/initialdata';
 
 const store = configureStore();
+
+const TopLevelNavigator = createStackNavigator(
+  {
+    About: AppAbout,
+    Home: AppHome,
+    Matches: AppMatches,
+    News: AppNews,
+    Player: AppPlayer,
+    PlayerAdd: AppPlayerAdd,
+    Players: AppPlayers,
+    TeamAdd: AppTeamAdd,
+    Teams: AppTeams,
+
+  }, {
+    initialRouteName: 'Home',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#6a5b40',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  }
+);
 
 export default class App extends Component<{}> {
 
@@ -54,21 +82,18 @@ export default class App extends Component<{}> {
     }
     return (
       <Provider store={store}>
+
         <StyleProvider style={getTheme(moxColor)}>
-          <Container>
-            <Router>
-              <Scene key="home" component={AppHome} hideNavBar={true}/>
-              <Scene key="matches" component={AppMatches} hideNavBar={true}/>
-              <Scene key="teams" component={AppTeams} hideNavBar={true}/>
-              <Scene key="teamadd" component={AppTeamAdd} hideNavBar={true}/>
-              <Scene key="players" component={AppPlayers} hideNavBar={true}/>
-              <Scene key="player" component={AppPlayer} players={this.state.players} hideNavBar={true}/>
-              <Scene key="playeradd" component={AppPlayerAdd} hideNavBar={true}/>
-              <Scene key="about" component={AppAbout} hideNavBar={true}/>
-              <Scene key="news" component={AppNews} hideNavBar={true}/>
-            </Router>
-            <AppFooter/>
-          </Container>
+          <Root>
+            <Container>
+              <TopLevelNavigator
+                ref={navigatorRef => {
+                  NavigationService.setTopLevelNavigator(navigatorRef);
+                }}
+              />
+              <AppFooter/>
+            </Container>
+          </Root>
         </StyleProvider>
       </Provider>
     );
