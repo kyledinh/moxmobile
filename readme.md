@@ -66,7 +66,7 @@ sdk.dir = /Users/kyle/Library/Android/sdk
 * `npm install react-navigation --save`
 * `npm install react-redux --save`
 * `npm install redux-thunk --save`
-* `npm install --save redux-persist --save`
+* `npm install redux-persist --save`
 
 ## NativeBase
 Create custom theme
